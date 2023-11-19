@@ -11,28 +11,28 @@ export default function Header() {
             <button type="button" className="btn btn-bnw fw-bold">Try for free</button>
         </div>
         <div>
-            <div class="mountain">
-                <div class="mountain-top">
-                <div class="mountain-cap-1"></div>
-                <div class="mountain-cap-2"></div>
-                <div class="mountain-cap-3"></div>
+            <div className="mountain">
+                <div className="mountain-top">
+                <div className="mountain-cap-1"></div>
+                <div className="mountain-cap-2"></div>
+                <div className="mountain-cap-3"></div>
                 </div>
             </div>
-            <div class="mountain-two">
-                <div class="mountain-top">
-                <div class="mountain-cap-1"></div>
-                <div class="mountain-cap-2"></div>
-                <div class="mountain-cap-3"></div>
+            <div className="mountain-two">
+                <div className="mountain-top">
+                <div className="mountain-cap-1"></div>
+                <div className="mountain-cap-2"></div>
+                <div className="mountain-cap-3"></div>
                 </div>
             </div>
-            <div class="mountain-three">
-                <div class="mountain-top">
-                <div class="mountain-cap-1"></div>
-                <div class="mountain-cap-2"></div>
-                <div class="mountain-cap-3"></div>
+            <div className="mountain-three">
+                <div className="mountain-top">
+                <div className="mountain-cap-1"></div>
+                <div className="mountain-cap-2"></div>
+                <div className="mountain-cap-3"></div>
                 </div>
             </div>
-            <div class="cloud"></div>
+            <div className="cloud"></div>
         </div>
         </div>
     </>
