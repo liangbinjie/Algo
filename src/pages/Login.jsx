@@ -36,7 +36,7 @@ const Login = () => {
     <>
       <Container
         className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}>
+        style={{ minHeight: "80vh" }}>
         <div className="w-100" style={{ maxWidth: "400px" }}>
       <Card>
         <Card.Body>
@@ -59,9 +59,7 @@ const Login = () => {
               </Alert>
             )}
             <div className="text-center mt-2">
-              <Button disabled={loading} type="submit" className="w-50">
-                Login
-              </Button>
+                <button className='btn btn-bnw w-50' type='submit'>Login</button>
             </div>
           </Form>
         </Card.Body>

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import '../App.css'
 import logo from '../assets/logo.png';
 import { useAuth } from "../context/AuthProvider";
@@ -20,7 +19,7 @@ export default function Navbar() {
         <>
           <nav className="navbar navbar-expand-lg navbar-dark">
             <div className="container-fluid ms-3">
-              <a className="navbar-brand" href="/"><img src={logo} alt="" /></a>
+              <a className="navbar-brand" href="/"><img src={logo} alt="TodoJS Logo" /></a>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -42,7 +41,7 @@ export default function Navbar() {
                   )}
                   {!auth && ( 
                     <li className="nav-item">
-                    <a className="nav-link signup px-3" href="#">Register</a>
+                    <a className="nav-link signup px-3" href="/register">Register</a>
                   </li>
                   )}
                 </ul>
