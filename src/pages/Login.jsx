@@ -37,6 +37,7 @@ const Login = () => {
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh" }}>
+        <div className="w-100" style={{ maxWidth: "400px" }}>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Login</h2>
@@ -71,8 +72,8 @@ const Login = () => {
           Forgot Password? <Link to={"/"}>Click Here</Link>
       </div>
       </Card>
+      </div>
       </Container>
-
     </>
   );
 };

@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <Navbar />
-        <div className="w-100" style={{ maxWidth: "400px" }}>
           <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
@@ -18,7 +17,6 @@ function App() {
             </Route>
             <Route path="/login" element={<Login />} />
           </Routes>
-        </div>
     </>
   );
 }
