@@ -1,27 +1,24 @@
-import { useState, useEffect } from 'react'
 import './App.css'
-import Navbar from './Navbar';
-import Header from './Header';
-import {supabase} from './client'
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
+import Login from './pages/Login';
+import { Routes, Route } from "react-router-dom";
+import AuthRoute from './context/AuthRoute';
 
 function App() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    getUsers();
-  }, []);
-
-  async function getUsers() {
-    const { data } = await supabase.from("Users").select("*");
-    setUsers(data);
-    console.log(data);
-  }
 
   return (
     <>
-      <Navbar></Navbar>
-      <Header></Header>
-
+      <Navbar />
+        <div className="w-100" style={{ maxWidth: "400px" }}>
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+            <Route element={<AuthRoute />}>
+            </Route>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
     </>
   );
 }
