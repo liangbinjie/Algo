@@ -1,8 +1,9 @@
 import '../App.css'
 import { IonLogoGithub } from '../assets/icons';
-import { githubLogin } from "../context/AuthProvider";
+import { githubLogin, useAuth } from "../context/AuthProvider";
 
 export default function Header() {
+    const { user } = useAuth();
 
     return (
     <>
@@ -11,7 +12,12 @@ export default function Header() {
             <h2 className="fw-bold fs-2">Organize your Life | Work</h2>
             <h1 className="fw-bold fs-1">With TodoJS</h1>
             <h6 className="fs-5 p-4">Keep all the things you need to do in one place with TodoJS</h6>
-            <button type="button" className="btn btn-bnw fw-bold" onClick={githubLogin}>SignUp with Github <IonLogoGithub/></button>
+            {!user && (
+                <button type="button" className="btn btn-bnw fw-bold" onClick={githubLogin}>SignUp with Github <IonLogoGithub/></button>
+            )}
+            {user && (
+                <h6>Current account: {user.user_metadata.user_name}</h6>
+            )}
         </div>
         <div>
             <div className="mountain">
