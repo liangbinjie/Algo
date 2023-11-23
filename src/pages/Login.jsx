@@ -1,8 +1,7 @@
 import { useRef, useState } from "react";
-import { Alert, Button, Card, Form, Container } from "react-bootstrap";
+import { Alert, Card, Form, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthProvider";
-import { supabase } from "../client";
+import { useAuth, githubLogin } from "../context/AuthProvider";
 
 const Login = () => {
   const emailRef = useRef(null);
@@ -31,12 +30,6 @@ const Login = () => {
       setErrorMsg("Email or Password Incorrect");
     }
     setLoading(false);
-  };
-
-  const githubLogin = async (e) => {
-    await supabase.auth.signInWithOAuth({
-      provider: "github",
-    });
   };
 
   return (
