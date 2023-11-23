@@ -12,4 +12,17 @@ const AuthRoute = () => {
   );
 };
 
-export default AuthRoute;
+const NotAuthRoute = () => {
+  const { auth } = useAuth();
+  const location = useLocation();
+
+  // checks if user is already authenticated, if not, redirects to home page
+  return auth ? (
+    <Outlet />
+    ) : (
+      <Navigate to={"/home"} replace state={{ path: location.pathname }} />
+  );
+}
+
+// export default AuthRoute;
+export { NotAuthRoute, AuthRoute };

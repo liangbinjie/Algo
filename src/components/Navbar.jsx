@@ -1,7 +1,7 @@
 import '../App.css'
 import logo from '../assets/logo.png';
 import { useAuth, githubLogin } from "../context/AuthProvider";
-import { IonLogoGithub } from '../assets/icons';
+import { IonLogoGithub, Exit } from '../assets/icons';
 
 export default function Navbar() {
     const {auth, signOut} = useAuth();
@@ -39,14 +39,19 @@ export default function Navbar() {
                   )} */}
                   
                   {auth && (
+                  <>
                   <li className="nav-item px-3">
-                    <a className="nav-link" onClick={handleLogout} href='/home'>SignOut</a>
+                    <a className="nav-link" href='/dashboard'>Dashboard</a>
                   </li>
+                  <li className="nav-item px-3">
+                    <a className="nav-link" onClick={handleLogout} href='/home'><Exit/></a>
+                  </li>
+                  </>
                   )}
                   {!auth && ( 
                     <li className="nav-item">
-                    <a className="nav-link signup px-3" onClick={githubLogin} href="#">Login with <IonLogoGithub/></a>
-                  </li>
+                      <a className="nav-link signup px-3" onClick={githubLogin} href="#">Login with <IonLogoGithub/></a>
+                    </li>
                   )}
                 </ul>
               </div>

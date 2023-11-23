@@ -2,7 +2,9 @@
 
 > A ToDo App website using ViteReactJS
 
-Deployed on Vercel, it connects to a **Supabase** database to retrieve users data. 
+Deployed on **Vercel**, it connects to a **Supabase** database to retrieve users data. 
+
+It uses Github OAuth Api to signUp into the app
 
 
 References:

@@ -3,8 +3,9 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
 import { Routes, Route } from "react-router-dom";
-import AuthRoute from './context/AuthRoute';
+import {AuthRoute, NotAuthRoute} from './context/AuthRoute';
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
             <Route element={<AuthRoute />}>
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+            </Route>
+            <Route element={<NotAuthRoute />}>
+              <Route path='/dashboard' element={<Dashboard />} />
             </Route>
           </Routes>
     </>
