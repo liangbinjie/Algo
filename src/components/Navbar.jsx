@@ -1,13 +1,16 @@
 import '../App.css'
 import logo from '../assets/logo.png';
-import { useAuth } from "../context/AuthProvider";
+import { useAuth, githubLogin } from "../context/AuthProvider";
+import { IonLogoGithub } from '../assets/icons';
 
 export default function Navbar() {
     const {auth, signOut} = useAuth();
+    const { user } = useAuth();
 
     const handleLogout = async (e) => {
       e.preventDefault();
       try {
+        console.log(user.user_metadata.user_name);
         const { error } = await signOut();
         console.log(error);
       } catch (error) {
@@ -29,11 +32,12 @@ export default function Navbar() {
                     <a className="nav-link" aria-current="page" href="/">Home</a>
                   </li>
 
-                  {!auth && (
-                  <li className="nav-item px-3">
-                    <a className="nav-link" href="/login">Sign In</a>
-                  </li>
-                  )}
+                  {/* {!auth && (
+                  // <li className="nav-item px-3">
+                  //   <a className="nav-link" href="/login">Sign In </a>
+                  // </li>
+                  )} */}
+                  
                   {auth && (
                   <li className="nav-item px-3">
                     <a className="nav-link" onClick={handleLogout} href='/home'>SignOut</a>
@@ -41,7 +45,7 @@ export default function Navbar() {
                   )}
                   {!auth && ( 
                     <li className="nav-item">
-                    <a className="nav-link signup px-3" href="/register">Register</a>
+                    <a className="nav-link signup px-3" onClick={githubLogin} href="#">Login with <IonLogoGithub/></a>
                   </li>
                   )}
                 </ul>

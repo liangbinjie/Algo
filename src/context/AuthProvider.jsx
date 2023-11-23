@@ -7,6 +7,12 @@ export const useAuth = () => useContext(AuthContext)
 
 const login = (email, password) => supabase.auth.signInWithPassword({ email, password })
 
+export const githubLogin = async (e) => {
+    await supabase.auth.signInWithOAuth({
+      provider: "github",
+    });
+  }
+
 const signOut = () => supabase.auth.signOut()
 
 const AuthProvider = ({children}) => {

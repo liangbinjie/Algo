@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Alert, Button, Card, Form, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
+import { supabase } from "../client";
 
 const Login = () => {
   const emailRef = useRef(null);
@@ -30,6 +31,12 @@ const Login = () => {
       setErrorMsg("Email or Password Incorrect");
     }
     setLoading(false);
+  };
+
+  const githubLogin = async (e) => {
+    await supabase.auth.signInWithOAuth({
+      provider: "github",
+    });
   };
 
   return (
@@ -64,6 +71,7 @@ const Login = () => {
           </Form>
         </Card.Body>
         <div className="w-100 text-center mt-2">
+          <button className='btn btn-bnw w-50' onClick={githubLogin}>GitHub</button>
           New User? <Link to={"/#"}>Register</Link>
         </div>
         <div className="w-100 text-center mt-2">
