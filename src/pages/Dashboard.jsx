@@ -61,7 +61,7 @@ const Dashboard = () => {
             {tasksArray.map((task) => (
                 <div className="py-2 card my-3" id={task.id}>
                     <div className="d-flex justify-content-center">
-                        <div className="card-body">
+                        <div className="card-body w-75">
                             {task.description}
                         </div>
                         <div className="card-fn">
