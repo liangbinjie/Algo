@@ -2,6 +2,7 @@ import { Container, Card } from "react-bootstrap";
 import { supabase } from "../client";
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthProvider";
+import { Delete } from "../assets/icons";
 
 
 const Dashboard = () => {
@@ -35,6 +36,13 @@ const Dashboard = () => {
         console.log(tasksArray);
     }
 
+    const deleteTask = async (id) => {
+        let { data: tasks, error } = await supabase.from("tasks").delete("*").eq("id", id);
+        if (error) console.log("error", error);
+        else console.log("tasks", tasks);
+        fetch();
+    }
+
     return (
         <Container className="mt-5">
             <h2>Dashboard</h2>
@@ -51,17 +59,18 @@ const Dashboard = () => {
             <hr />
 
             {tasksArray.map((task) => (
-                <div className="py-2">
-                    <Card>
+                <div className="py-2 card my-3" id={task.id}>
+                    <div className="d-flex justify-content-center">
                         <div className="card-body">
                             {task.description}
                         </div>
-                        <hr />
-                        <button className="btn btn-bnw">Done</button>
-                    </Card>
+                        <div className="card-fn">
+                            <input type="checkbox" name="done" id="done" className="mx-3" />
+                            <button onClick={() => deleteTask(task.id)}><Delete></Delete></button>
+                        </div>
+                    </div>
                 </div>
             ))}
-
 
         </Container>
     );

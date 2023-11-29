@@ -28,6 +28,11 @@ nav {
     color: white;
 }
 
+.card-fn {
+    padding: 10px;
+    align-items: center;
+}
+
 .bg{
     overflow:hidden;
     position: absolute;
