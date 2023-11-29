@@ -18,6 +18,8 @@ After signing in, you can go to the dashboard page to
 
 ![Dashboard Page](public/dashboard.png)
 
+![Dashboard Page 2](public/dashboard2.png)
+
 
 # References:
 - https://blog.openreplay.com/authentication-in-react-with-supabase/
